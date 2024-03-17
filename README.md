@@ -29,7 +29,7 @@ library types and operations where they make sense. The operators are:
 
 - `let*`: monadic binding
 - `let+`: map
-- `and+`: application map (ie Cartesian join)
+- `and+`: applicative map (ie Cartesian join)
 - `let&`: safe resource disposal
 
 ## Examples
