@@ -1,5 +1,5 @@
 module In_channel : sig
-  val ( let& ) : in_channel -> (unit -> 'a) -> 'a
+  val ( let& ) : In_channel.t -> (In_channel.t -> 'a) -> 'a
 end
 
 module List : sig
@@ -15,7 +15,7 @@ module Option : sig
 end
 
 module Out_channel : sig
-  val ( let& ) : out_channel -> (unit -> 'a) -> 'a
+  val ( let& ) : Out_channel.t -> (Out_channel.t -> 'a) -> 'a
 end
 
 module Result : sig

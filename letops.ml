@@ -1,5 +1,6 @@
 module In_channel = struct
-  let ( let& ) inc f = Fun.protect ~finally:(fun () -> In_channel.close inc) f
+  let ( let& ) inc f =
+    Fun.protect ~finally:(fun () -> In_channel.close inc) (fun () -> f inc)
 end
 
 module List = struct
@@ -30,7 +31,7 @@ end
 
 module Out_channel = struct
   let ( let& ) outc f =
-    Fun.protect ~finally:(fun () -> Out_channel.close outc) f
+    Fun.protect ~finally:(fun () -> Out_channel.close outc) (fun () -> f outc)
 end
 
 module Result = struct
