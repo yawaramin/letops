@@ -24,8 +24,8 @@ https://github.com/ocaml/ocaml/pull/1947
 However they have not made it into the standard library yet:
 https://github.com/ocaml/ocaml/pull/2170
 
-This tiny library introduces a sensible selection of let operators for standard
-library types and operations where they make sense. The operators are:
+This tiny library introduces a selection of let operators for standard library
+types and operations where they make sense. The operators are:
 
 - `let*`: monadic binding
 - `let+`: map

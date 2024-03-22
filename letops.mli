@@ -68,5 +68,5 @@ module Seq : sig
   (** Same as [Seq.map]. *)
 
   val ( and+ ) : 'a Seq.t -> 'b Seq.t -> ('a * 'b) Seq.t
-  (** Cartesian product of two results. *)
+  (** Cartesian product of two seqs. *)
 end
