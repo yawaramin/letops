@@ -15,6 +15,8 @@
    You should have received a copy of the GNU General Public License along with
    letops. If not, see <https://www.gnu.org/licenses/>. *)
 
+let ( let@ ) = ( @@ )
+
 module In_channel = struct
   let ( let& ) inc f =
     Fun.protect ~finally:(fun () -> In_channel.close inc) (fun () -> f inc)

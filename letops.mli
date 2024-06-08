@@ -15,6 +15,37 @@
    You should have received a copy of the GNU General Public License along with
    letops. If not, see <https://www.gnu.org/licenses/>. *)
 
+val ( let@ ) : ('a -> 'b) -> 'a -> 'b
+(** [let@ a = f x in b] is a generalization of the idea of turning a callback-
+    style function call into a 'direct-style' call. You can use it with any
+    function that is normally called like:
+
+    {[f x (fun a -> b)]}
+
+    And instead call it like:
+
+    {[let@ a = f x in b]}
+
+    This applies to a wide variety of functions, eg
+
+    {[In_channel.with_open_text "README.txt" (fun inc ->
+      ...)
+
+      (* vs *)
+
+      let@ inc = In_channel.with_open_text "README.md" in
+      ...]}
+
+    Or
+
+    {[Dream.get "/users" (fun req ->
+      ...)
+
+      (* vs *)
+
+      let@ req = Dream.get "/users" in
+      ...]} *)
+
 module In_channel : sig
   val ( let& ) : In_channel.t -> (In_channel.t -> 'a) -> 'a
   (** [let& inc = ... in f] ensures that [inc] is closed in the case that an
